@@ -1,0 +1,57 @@
+{% extends "survey/base.html" %}
+{% load crispy_forms_tags %}
+
+    {% block content %}
+        <form action="" method="post" autocomplete="off">
+            {% csrf_token %}
+            <div class = "row">
+                <div class = "col-md-6">
+                    {{ form.diabetes|as_crispy_field }}
+                </div>
+                <div class = "col-md-6">
+                    {{ form.highbp|as_crispy_field }}
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-md-6">
+                    {{ form.heart|as_crispy_field }}
+                </div>
+                <div class = "col-md-6">
+                    {{ form.lung|as_crispy_field }}
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-md-6">
+                    {{ form.stroke|as_crispy_field }}
+                </div>
+                <div class = "col-md-6">
+                    {{ form.immunity|as_crispy_field }}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success"><i class="fa fa-database" aria-hidden="true"></i>  Submit</button>
+            <p></p>
+            <p></p>
+
+        {% if messages %}
+
+            {% for msg in messages %}
+
+                <center>
+                    <div class="alert alert-primary" role="alert">
+                        <h4 class="alert-heading">{{ msg }}</h4>
+                        <hr>
+                        <p>Take care and Stay Home, Stay Safe</p>
+                    </div>
+
+                </center>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </form>
+
+
+
+    {% endblock content %}
